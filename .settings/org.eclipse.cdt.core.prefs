@@ -1,0 +1,17 @@
+doxygen/doxygen_new_line_after_brief=true
+doxygen/doxygen_use_brief_tag=false
+doxygen/doxygen_use_javadoc_tags=true
+doxygen/doxygen_use_pre_tag=false
+doxygen/doxygen_use_structural_commands=false
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1051956291/BATCH_BUILD/delimiter=;
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1051956291/BATCH_BUILD/operation=append
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1051956291/BATCH_BUILD/value=1
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1051956291/IDF_PATH/delimiter=;
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1051956291/IDF_PATH/operation=append
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1051956291/IDF_PATH/value=
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1051956291/PATH/delimiter=;
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1051956291/PATH/operation=replace
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1051956291/PATH/value=\\bin;C\:/Program Files/Java/jdk-14.0.1/bin/server;C\:/Program Files/Java/jdk-14.0.1/bin;C\:\\WINDOWS\\system32;C\:\\WINDOWS;C\:\\WINDOWS\\System32\\Wbem;C\:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C\:\\Program Files\\PuTTY\\;C\:\\WINDOWS\\System32\\OpenSSH\\;C\:\\Program Files\\MATLAB\\R2017b\\runtime\\win64;C\:\\Program Files\\MATLAB\\R2017b\\bin;C\:\\Program Files (x86)\\IDEMIA\\AWP\\Dlls;C\:\\Program Files\\IDEMIA\\AWP\\Dlls;C\:\\Program Files\\Java\\jdk-14.0.1\\bin;C\:\\Program Files\\Git\\cmd;C\:\\WINDOWS\\system32;C\:\\WINDOWS;C\:\\WINDOWS\\System32\\Wbem;C\:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C\:\\Program Files\\PuTTY\\;C\:\\WINDOWS\\System32\\OpenSSH\\;C\:\\Program Files\\MATLAB\\R2017b\\runtime\\win64;C\:\\Program Files\\MATLAB\\R2017b\\bin;C\:\\Program Files (x86)\\IDEMIA\\AWP\\Dlls;C\:\\Program Files\\IDEMIA\\AWP\\Dlls;C\:\\Program Files\\Java\\jdk-14.0.1\\bin;C\:\\Program Files\\Git\\cmd;C\:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python35\\Scripts\\;C\:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python35\\;C\:\\Users\\User\\AppData\\Local\\Microsoft\\WindowsApps;C\:\\MinGW\\bin;C\:\\gtk\\bin;C\:\\esp\\esp32_win32_msys2_environment_and_toolchain-20181001\\msys32\\mingw32\\bin;C\:\\esp\\esp32_win32_msys2_environment_and_toolchain-20181001\\msys32\\usr\\bin;C\:\\esp\\xtensa-lx106-elf-gcc8_4_0-esp-2020r3-win32 (1)\\xtensa-lx106-elf\\bin;C\:\\Program Files (x86)\\Atmel\\Atmel Studio 6.2\\atbackend;C\:\\bin;C\:\\Users\\User\\eclipse\\cpp-2020-12\\eclipse
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1051956291/append=true
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.1051956291/appendContributed=true

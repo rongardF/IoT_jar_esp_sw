@@ -80,9 +80,9 @@ SECTIONS
     /* Code marked as runnning out of IRAM */
     _iram_text_start = ABSOLUTE(.);
 
-    *( .iram1  .iram1.* EXCLUDE_FILE(*libgcc.a:unwind-dw2-fde.* *libgcc.a:unwind-dw2.* *libphy.a *libpp.a *libspi_flash.a:spi_flash_raw.*) .literal EXCLUDE_FILE(*libgcc.a:unwind-dw2-fde.* *libgcc.a:unwind-dw2.* *libphy.a *libpp.a *libspi_flash.a:spi_flash_raw.*) .text)
-    *libphy.a:( .literal  .literal.*  .text  .text.*)
+    *( .iram1  .iram1.* EXCLUDE_FILE(*libpp.a *libgcc.a:unwind-dw2.* *libgcc.a:unwind-dw2-fde.* *libphy.a *libspi_flash.a:spi_flash_raw.*) .literal EXCLUDE_FILE(*libpp.a *libgcc.a:unwind-dw2.* *libgcc.a:unwind-dw2-fde.* *libphy.a *libspi_flash.a:spi_flash_raw.*) .text)
     *libpp.a:( .literal  .literal.*  .text  .text.*)
+    *libphy.a:( .literal  .literal.*  .text  .text.*)
     *libspi_flash.a:spi_flash_raw.*( .literal  .literal.*  .text  .text.*)
 
     _iram_text_end = ABSOLUTE(.);
@@ -94,16 +94,16 @@ SECTIONS
     /* Code marked as runnning out of IRAM */
     _iram_bss_start = ABSOLUTE(.);
 
-    *libcore.a:( .bss  .bss.*  COMMON)
     *liblwip.a:( .bss  .bss.*  COMMON)
-    *libfreertos.a:stream_buffer.*( .bss  .bss.*  COMMON)
     *libfreertos.a:impure.*( .bss  .bss.*  COMMON)
-    *libfreertos.a:event_groups.*( .bss  .bss.*  COMMON)
     *libfreertos.a:timers.*( .bss  .bss.*  COMMON)
+    *libfreertos.a:freertos_hooks.*( .bss  .bss.*  COMMON)
     *libfreertos.a:queue.*( .bss  .bss.*  COMMON)
     *libfreertos.a:list.*( .bss  .bss.*  COMMON)
+    *libfreertos.a:event_groups.*( .bss  .bss.*  COMMON)
     *libfreertos.a:tasks.*( .bss  .bss.*  COMMON)
-    *libfreertos.a:freertos_hooks.*( .bss  .bss.*  COMMON)
+    *libfreertos.a:stream_buffer.*( .bss  .bss.*  COMMON)
+    *libcore.a:( .bss  .bss.*  COMMON)
 
     . = ALIGN (4);
     _iram_bss_end = ABSOLUTE(.);
@@ -155,7 +155,7 @@ SECTIONS
     . = ALIGN (8);
     _bss_start = ABSOLUTE(.);
 
-    *(EXCLUDE_FILE(*libcore.a *liblwip.a *libfreertos.a:freertos_hooks.* *libfreertos.a:tasks.* *libfreertos.a:list.* *libfreertos.a:queue.* *libfreertos.a:timers.* *libfreertos.a:event_groups.* *libfreertos.a:impure.* *libfreertos.a:stream_buffer.*) .bss EXCLUDE_FILE(*libcore.a *liblwip.a *libfreertos.a:freertos_hooks.* *libfreertos.a:tasks.* *libfreertos.a:list.* *libfreertos.a:queue.* *libfreertos.a:timers.* *libfreertos.a:event_groups.* *libfreertos.a:impure.* *libfreertos.a:stream_buffer.*) .bss.* EXCLUDE_FILE(*libcore.a *liblwip.a *libfreertos.a:freertos_hooks.* *libfreertos.a:tasks.* *libfreertos.a:list.* *libfreertos.a:queue.* *libfreertos.a:timers.* *libfreertos.a:event_groups.* *libfreertos.a:impure.* *libfreertos.a:stream_buffer.*) COMMON)
+    *(EXCLUDE_FILE(*liblwip.a *libfreertos.a:stream_buffer.* *libfreertos.a:tasks.* *libfreertos.a:event_groups.* *libfreertos.a:list.* *libfreertos.a:queue.* *libfreertos.a:freertos_hooks.* *libfreertos.a:timers.* *libfreertos.a:impure.* *libcore.a) .bss EXCLUDE_FILE(*liblwip.a *libfreertos.a:stream_buffer.* *libfreertos.a:tasks.* *libfreertos.a:event_groups.* *libfreertos.a:list.* *libfreertos.a:queue.* *libfreertos.a:freertos_hooks.* *libfreertos.a:timers.* *libfreertos.a:impure.* *libcore.a) .bss.* EXCLUDE_FILE(*liblwip.a *libfreertos.a:stream_buffer.* *libfreertos.a:tasks.* *libfreertos.a:event_groups.* *libfreertos.a:list.* *libfreertos.a:queue.* *libfreertos.a:freertos_hooks.* *libfreertos.a:timers.* *libfreertos.a:impure.* *libcore.a) COMMON)
 
     *(.dynsbss)
     *(.sbss)
@@ -181,9 +181,9 @@ SECTIONS
     _stext = .;
     _text_start = ABSOLUTE(.);
 
-    *(EXCLUDE_FILE(*libgcc.a:unwind-dw2-fde.* *libgcc.a:unwind-dw2.* *libphy.a *libpp.a *libspi_flash.a:spi_flash_raw.*) .literal EXCLUDE_FILE(*libgcc.a:unwind-dw2-fde.* *libgcc.a:unwind-dw2.* *libphy.a *libpp.a *libspi_flash.a:spi_flash_raw.*) .literal.* EXCLUDE_FILE(*libgcc.a:unwind-dw2-fde.* *libgcc.a:unwind-dw2.* *libphy.a *libpp.a *libspi_flash.a:spi_flash_raw.*) .text EXCLUDE_FILE(*libgcc.a:unwind-dw2-fde.* *libgcc.a:unwind-dw2.* *libphy.a *libpp.a *libspi_flash.a:spi_flash_raw.*) .text.*  .wifi0iram  .wifi0iram.*)
-    *libgcc.a:unwind-dw2.*( .literal  .literal.*  .text  .text.*)
+    *(EXCLUDE_FILE(*libpp.a *libgcc.a:unwind-dw2.* *libgcc.a:unwind-dw2-fde.* *libphy.a *libspi_flash.a:spi_flash_raw.*) .literal EXCLUDE_FILE(*libpp.a *libgcc.a:unwind-dw2.* *libgcc.a:unwind-dw2-fde.* *libphy.a *libspi_flash.a:spi_flash_raw.*) .literal.* EXCLUDE_FILE(*libpp.a *libgcc.a:unwind-dw2.* *libgcc.a:unwind-dw2-fde.* *libphy.a *libspi_flash.a:spi_flash_raw.*) .text EXCLUDE_FILE(*libpp.a *libgcc.a:unwind-dw2.* *libgcc.a:unwind-dw2-fde.* *libphy.a *libspi_flash.a:spi_flash_raw.*) .text.*  .wifi0iram  .wifi0iram.*)
     *libgcc.a:unwind-dw2-fde.*( .literal  .literal.*  .text  .text.*)
+    *libgcc.a:unwind-dw2.*( .literal  .literal.*  .text  .text.*)
 
     /* For ESP8266 library function */
     *(.irom0.literal .irom0.text)

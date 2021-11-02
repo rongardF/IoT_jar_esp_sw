@@ -32,6 +32,7 @@ TODO:
 #include "types.h"
 #include "gpio_control.h"
 #include "wifi_iot.h"
+#include "conf_server.h"
 
 #include "mqtt_client.h"
 
@@ -162,7 +163,10 @@ void app_main(void)
 	}
 	else if (rcu_conf_flag == 1)  // RCU is active, go into configuring mode
 	{
+		// initialize ESP as AP+STA with default IP and port
 		wifi_init_sta_ap();
+
+		// wait until we have a station connected to AP
 		EventBits_t bits = xEventGroupWaitBits(s_sta_ap_event_group,
 				STA_CONNECTED,
 				pdTRUE,
@@ -171,7 +175,8 @@ void app_main(void)
 
 		if (bits & STA_CONNECTED)
 		{
-			ESP_LOGI("MAIN", "Station has connected\r\n");
+			// create a task to receive connection
+			xTaskCreate(listener, "listener", 1024, NULL, 5, NULL);
 		}
 		else
 		{

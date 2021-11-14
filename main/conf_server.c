@@ -82,6 +82,13 @@ void conf_server(int32_t socket)
 	ESP_LOGI("CONF_SERVER", "SSID: %s\r\n",(char*) new_conf.SSID);
 	ESP_LOGI("CONF_SERVER", "Password: %s\r\n",(char*) new_conf.PASSWORD);
 
+	reconfigure_wifi(new_conf.SSID, new_conf.PASSWORD);
+
+	// wait for confirmation that connected to home network and server and parameters saved into flash
+
+	// send packet to client app informing that will now disconnect and close AP mode
+
+	// shutdown this task
 	while (1)
 	{
 		vTaskDelay(5000 / portTICK_RATE_MS);
@@ -131,29 +138,10 @@ void listener ()
 
 		// check if STA disconnected or client app closed connection - wait for a new connection if configuration was not finished
 
-		// check if all configuration information received and have communication with MQTT broker - delete both tasks then and re-configurefor STA only
+		// wait until conf_server task has finished, shutdown listener and configure device into STA mode only
 
+		// kill this task
 	}
-
-
-
-//	ESP_LOGI("CONF_SERVER", "Connection received\r\n");
-//
-//	if(recv(user_socket, message, 200, 0) < 0)
-//	{
-//		ESP_LOGE("CONF_SERVER", "Failed to receive a message\r\n");
-//	}
-//	strcpy(home_ssid,message);
-//
-//	ESP_LOGI("CONF_SERVER", "SSID received: %s\r\n",home_ssid);
-//
-//	if(recv(user_socket, message, 200, 0) < 0)
-//	{
-//		ESP_LOGE("CONF_SERVER", "Failed to receive a message\r\n");
-//	}
-//	strcpy(home_passwd,message);
-//
-//	ESP_LOGI("CONF_SERVER", "Password received: %s\r\n",home_passwd);
 }
 
 

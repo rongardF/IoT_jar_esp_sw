@@ -146,27 +146,6 @@ void app_main(void)
 	vTaskDelay(5000 / portTICK_RATE_MS);
 	ESP_LOGI("MAIN", "Starting application\r\n");
 
-//	wifi_config_t test = {
-//	        .ap = {
-//	            .ssid = myTest,
-//	            .ssid_len = strlen(myTest),
-//	            .password = myTest,
-//	        },
-//	    };
-//
-//	if (test.ap.ssid[0] == 0)
-//	{
-//		ESP_LOGI("MAIN", "Just a dummy line\r\n");
-//	}
-//
-//	ESP_LOGI("MAIN", "SSID length: %d\r\n",sizeof(myTest));
-//	ESP_LOGI("MAIN", "SSID value: %d\r\n",test.ap.ssid[4]);
-//	ESP_LOGI("MAIN", "Password value: %s\r\n",(char*) test.ap.password);
-//
-//	while (1){
-//		vTaskDelay(5000 / portTICK_RATE_MS);
-//	}
-
 //	setup_GPIO(GPIO_MODE_INPUT, CONF_FLAG, GPIO_PULLDOWN_DISABLE, GPIO_PULLUP_DISABLE);  // disable GPIO for resetting VL6180 device
 //	rcu_conf_flag = gpio_get_level(CONF_FLAG);
 

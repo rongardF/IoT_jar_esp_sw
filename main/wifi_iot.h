@@ -13,12 +13,13 @@
 #define AP_WIFI_PASS "myPassword"
 #define AP_MAX_CONNECTIONS 1
 #define STA_CONNECTED BIT0
+#define CONFIGURED_TO_APSTA BIT1
 #define CONF_IP_ADDR "192.168.1.10"
 #define CONF_PORT_NUM 10000
 
 volatile EventGroupHandle_t s_sta_ap_event_group;
 
-void wifi_init_sta_ap();
-void reconfigure_wifi(uint8_t * ssid, uint8_t * password);
+void wifi_init_ap();
+void reconfigure_wifi_to_apsta(uint8_t * ssid, uint8_t * password);
 
 #endif /* WIFI_IOT_H_ */

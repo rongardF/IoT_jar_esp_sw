@@ -31,7 +31,7 @@ void conf_server(int32_t socket)
 
 	payload_len = ntohl(payload_len);
 
-	ESP_LOGI("CONF_SERVER", "Payload size %u\r\n",payload_len);
+//	ESP_LOGI("CONF_SERVER", "Payload size %u\r\n",payload_len);
 
 	if (recv(socket, &word_len, sizeof(word_len), 0) < 0)
 	{
@@ -40,7 +40,7 @@ void conf_server(int32_t socket)
 
 	word_len = ntohl(word_len);
 
-	ESP_LOGI("CONF_SERVER", "Word size %u\r\n",word_len);
+//	ESP_LOGI("CONF_SERVER", "Word size %u\r\n",word_len);
 
 	if (recv(socket, recv_buffer, word_len, 0) < 0)
 	{
@@ -63,7 +63,7 @@ void conf_server(int32_t socket)
 
 	word_len = ntohl(word_len);
 
-	ESP_LOGI("CONF_SERVER", "Word size %u\r\n",word_len);
+//	ESP_LOGI("CONF_SERVER", "Word size %u\r\n",word_len);
 
 	if (recv(socket, recv_buffer, word_len, 0) < 0)
 	{
@@ -79,10 +79,10 @@ void conf_server(int32_t socket)
 		}
 	}
 
-	ESP_LOGI("CONF_SERVER", "SSID: %s\r\n",(char*) new_conf.SSID);
-	ESP_LOGI("CONF_SERVER", "Password: %s\r\n",(char*) new_conf.PASSWORD);
+//	ESP_LOGI("CONF_SERVER", "SSID: %s\r\n",(char*) new_conf.SSID);
+//	ESP_LOGI("CONF_SERVER", "Password: %s\r\n",(char*) new_conf.PASSWORD);
 
-	reconfigure_wifi(new_conf.SSID, new_conf.PASSWORD);
+	reconfigure_wifi_to_apsta(new_conf.SSID, new_conf.PASSWORD);
 
 	// wait for confirmation that connected to home network and server and parameters saved into flash
 

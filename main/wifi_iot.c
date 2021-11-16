@@ -27,7 +27,7 @@ void wifi_event_handler(void* arg, esp_event_base_t event_base,
 	if (event_id == WIFI_EVENT_AP_STACONNECTED)
 	{  // station connected
 		wifi_event_ap_staconnected_t* event = (wifi_event_ap_staconnected_t*) event_data;
-		ESP_LOGI("WIFI_EVENT_HANDLER", "Station connected\r\n");
+		ESP_LOGI("WIFI_EVENT_HANDLER", "Station connected in AP-STA\r\n");
 		xEventGroupSetBits(s_sta_ap_event_group, STA_CONNECTED);
 	}
 	else if (event_id == WIFI_EVENT_AP_STADISCONNECTED)
@@ -46,7 +46,7 @@ void wifi_event_handler(void* arg, esp_event_base_t event_base,
 	}
 	else if (event_id == WIFI_EVENT_STA_CONNECTED)
 	{
-		ESP_LOGI("WIFI_EVENT_HANDLER", "Station connected\r\n");
+		ESP_LOGI("WIFI_EVENT_HANDLER", "Station connected in STA\r\n");
 	}
 	else if (event_id == WIFI_EVENT_STA_DISCONNECTED)
 	{
@@ -83,7 +83,7 @@ void wifi_event_handler(void* arg, esp_event_base_t event_base,
 	}
 }
 
-void wifi_init_sta_ap()
+void wifi_init_ap()
 {
 	tcpip_adapter_init();
 	ESP_ERROR_CHECK(esp_event_loop_create_default()); // create a default event loop used by system - THIS SHOULD PROBBALY BE IN MAIN BECAUSE THIS IS NOT ONLY USED BY WIFI
@@ -99,13 +99,12 @@ void wifi_init_sta_ap()
 
 	ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_AP));
 	ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_AP, &ap_wifi_config));
-//	ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &sta_wifi_config));
 	ESP_LOGI("WIFI_INIT_STA_AP", "Starting WiFi interface\r\n");
 	ESP_ERROR_CHECK(esp_wifi_start());
 }
 
 
-void reconfigure_wifi(uint8_t * ssid, uint8_t * password)
+void reconfigure_wifi_to_apsta(uint8_t * ssid, uint8_t * password)
 {
 	memcpy(sta_wifi_config.sta.ssid,ssid,sizeof(sta_wifi_config.sta.ssid));
 	memcpy(sta_wifi_config.sta.password,password,sizeof(sta_wifi_config.sta.password));
